@@ -25,11 +25,6 @@ sub refresh {
     return $self->_parse_ps;
 }
 
-sub Hash {
-    my $self = shift;
-    return %{ $self->ptable };
-}
-
 # build a hash tree of the format
 #
 # {
@@ -156,15 +151,13 @@ sub _parse_ps {
 package Unicorn::Manager::Proc;
 
 use Moo;
+use JSON;
 use strict;
 use warnings;
 use autodie;
 use 5.010;
 
 has process_table => (
-    is => 'rw',
-);
-has newest_master => (
     is => 'rw',
 );
 
@@ -178,6 +171,22 @@ sub refresh {
     $self->process_table->refresh;
 }
 
+sub as_json {
+    my $self = shift;
+
+    my $user_table = $self->process_table->ptable;
+
+    for (keys %$user_table){
+        my $username = getpwuid $_;
+        $user_table->{$username} = $user_table->{$_};
+        delete $user_table->{$_}
+    }
+
+    my $json = JSON->new->utf8(1);
+
+    return $json->encode($user_table);
+}
+
 1;
 
 __END__
@@ -188,7 +197,7 @@ Unicorn::Manager::Proc - Process table used by Unicorn::Manager
 
 =head1 VERSION
 
-Version 0.01
+Version 0.005003
 
 =head1 SYNOPSIS
 
@@ -202,11 +211,21 @@ The modules utilizes /proc and thus only works on Linux systems.
 
     my $uniman_proc = Unicorn::Manager::Proc->new;
 
+=head2 process_table
+
+Get the process table.
+
 =head2 refresh
 
 Refreshes the process table.
 
     $uniman_proc->refresh;
+
+=head2 as_json
+
+Return process table as json.
+
+    my $json_text = $uniman_proc->as_json;
 
 =head1 AUTHOR
 
