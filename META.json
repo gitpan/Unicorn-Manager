@@ -4,7 +4,7 @@
       "Mugen Kenichi <mugen.kenichi@uninets.eu>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120630",
    "license" : [
       "mit"
    ],
@@ -32,29 +32,29 @@
       "runtime" : {
          "requires" : {
             "B::Hooks::OP::Check" : "0.19",
-            "Carp" : 0,
-            "Cwd" : 0,
-            "File::Basename" : 0,
-            "Getopt::Long" : 0,
-            "JSON" : 0,
-            "Moo" : 0,
-            "Test::More" : 0,
-            "Time::HiRes" : 0,
-            "YAML" : 0,
-            "bareword::filehandles" : 0,
-            "indirect" : 0,
-            "multidimensional" : 0
+            "Carp" : "0",
+            "Cwd" : "0",
+            "File::Basename" : "0",
+            "Getopt::Long" : "0",
+            "JSON" : "0",
+            "Moo" : "0",
+            "Test::More" : "0",
+            "Time::HiRes" : "0",
+            "YAML" : "0",
+            "bareword::filehandles" : "0",
+            "indirect" : "0",
+            "multidimensional" : "0"
          }
       }
    },
    "provides" : {
       "Unicorn::Manager" : {
          "file" : "lib/Unicorn/Manager.pm",
-         "version" : "0.005005"
+         "version" : "0.005006"
       },
       "Unicorn::Manager::Proc" : {
          "file" : "lib/Unicorn/Manager/Proc.pm",
-         "version" : "0.005005"
+         "version" : "0.005006"
       },
       "Unicorn::Manager::Proc::Table" : {
          "file" : "lib/Unicorn/Manager/Proc.pm",
@@ -62,11 +62,11 @@
       },
       "Unicorn::Manager::Types" : {
          "file" : "lib/Unicorn/Manager/Types.pm",
-         "version" : "0.005005"
+         "version" : "0.005006"
       },
       "Unicorn::Manager::Version" : {
          "file" : "lib/Unicorn/Manager/Version.pm",
-         "version" : "0.005005"
+         "version" : "0.005006"
       }
    },
    "release_status" : "stable",
@@ -75,5 +75,5 @@
          "http://opensource.org/licenses/mit-license.php"
       ]
    },
-   "version" : "0.005005"
+   "version" : "0.005006"
 }

@@ -297,7 +297,7 @@ This is an unstable development release not ready for production!
 
 =head1 VERSION
 
-Version 0.005005
+Version 0.005006
 
 =head1 SYNOPSIS
 
@@ -445,6 +445,12 @@ Adds num workers to the users unicorn. num defaults to 1.
     my $result = $unicorn->remove_worker({ num => 3 });
 
 Removes num workers but maximum of workers count -1. num defaults to 1.
+
+=head2 query
+
+NOT YET IMPLEMETED.
+
+An interface to query information about running unicorns and users.
 
 =head1 AUTHOR
 
