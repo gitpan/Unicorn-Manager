@@ -82,8 +82,7 @@ sub start {
 
             $argstring .= $_ . ' ' for @{$args};
 
-            # dirty hack. remove this!
-            $ENV{'RAILS_ENV'} = 'production';
+            $ENV{'RAILS_ENV'} = 'development' unless $ENV{'RAILS_ENV'};
 
             # spawn the unicorn
             if ( $self->rails ) {
@@ -351,7 +350,7 @@ This is an unstable development release not ready for production!
 
 =head1 VERSION
 
-Version 0.006008
+Version 0.006009
 
 =head1 SYNOPSIS
 
